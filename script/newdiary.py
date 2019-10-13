@@ -86,7 +86,10 @@ def create_filehead():
     return title + "\n===\n" + date_information + "\n\n" + age_information + "\n\n"
 
 def create_template_body():
-    return "### 本文 Content\n1.\n\n---\n\n### 注釋 Comment\n\n[1]\n\n### 附錄 Appendix\n"
+    upper_body = "### 本文 Content\n1. \n\n---\n\n2. 雜記:物價與其他\n\n---\n\n"
+    lower_body = "### 注釋 Comment\n\n[1] \n\n[2] 新台幣計價。有關新台幣可見蒼白球日誌0007。\n\n"
+    appendix = "### 附錄 Appendix\n"
+    return upper_body + lower_body + appendix
 
 def create_template():
     return create_filehead() + create_template_body()
