@@ -2,8 +2,8 @@ GPHEADER =[ '[_metadata_:encoding]: - "utf-8"',
         '[_metadata_:language]: - "zh-Hant-TW"',
         '[_metadata_:fileformat]: - "markdown"',
         '[_metadata_:MIME_type]: - "text/plain"',
-        '[_metadata_:markdown_version]: - "commonmark version 0.29"',
-        '[_metadata_:markdown_spec]: - "https://spec.commonmark.org/0.29/"']
+        '[_metadata_:markdown_version]: - "commonmark version 0.30"',
+        '[_metadata_:markdown_spec]: - "https://spec.commonmark.org/0.30/"']
 zhweekday = ["星期日", "星期一", "星期二",
             "星期三", "星期四", "星期五", "星期六"]
 
@@ -131,8 +131,8 @@ def create_file(d, path):
 
 current_path = Path(os.path.realpath(__file__))
 root = current_path.parent.parent
-rootpath = root / "source"
-for i in range(25):
+rootpath = root / "omcdiary_sourcefiles"
+for i in range(30):
     newday = datetime.now() + timedelta(days=i)
     create_file(newday, rootpath)
 
