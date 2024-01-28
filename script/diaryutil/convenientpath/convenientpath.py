@@ -6,7 +6,7 @@ def get_source():
 
 def get_dest(dest_name):
     parent = Path(__file__).parent.parent.parent.parent  
-    dest = parent / "export" / dest_name
+    dest = parent / "omcdiary_export" / dest_name
     if not dest.is_dir():
         dest.mkdir()
     else:
