@@ -1,6 +1,7 @@
 UNORDERED = 0
 ORDERED = 1
 COMMENT = 2
+SECONDORDERED = 3
 
 def lazy_header (s, header_level = 2):
     '''
@@ -24,6 +25,9 @@ def lazy_ol(s, n):
 def lazy_comment(s, n):
     return "\n[{}] {}\n\n".format(n, s)
 
+def lazy_secondol(s):
+    return "   - " + s + "\n"
+
 class convenient_list():
 
     def __init__(self, title = ""):
@@ -40,6 +44,9 @@ class convenient_list():
     def add_comment(self, s, n=1):
         self.content.append((s, COMMENT, n))
     
+    def add_secondol(self, s):
+        self.content.append((s, SECONDORDERED))
+    
     def compile(self):
         self.output += lazy_header(self.title)
         for item in self.content:
@@ -49,5 +56,7 @@ class convenient_list():
                 self.output += lazy_ol(item[0], item[2])
             elif item[1] == COMMENT:
                 self.output += lazy_comment(item[0], item[2])
+            elif item[1] == SECONDORDERED:
+                self.output += lazy_secondol(item[0])
         self.output += "\n"
         return self.output
