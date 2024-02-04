@@ -137,14 +137,14 @@ current_path = Path(os.path.realpath(__file__))
 root = current_path.parent.parent
 rootpath = root / "scripttest"
 tasklist = [
-    ("與男友共同做的研究部分，有氫原子模型的畫圖要做，有FEM要學。繼續試著算氫原子模型。", datetime(2024, 1, 23)), 
+    ("與男友共同做的研究部分，有氫原子模型的畫圖要做，有FEM要學。找到了別人寫的完整的氫原子模型，接下來讀看看code。", datetime(2024, 1, 23)), 
     ("與H大合作的切片影像分析企劃，已經停擺很久，需要檢閱工具有沒有問題。", datetime(2024, 1, 23)), 
     ("與加拿大鮮肉合作的文字分析企劃。", datetime(2024, 1, 23)),
     ("BL學科搬遷，主要是助理在規劃，但偶爾也要盯一下 ", datetime(2024, 1, 23)),
     ("學習音樂理論。", datetime(2024, 1, 23)),
     ("偶爾要念點病理書。", datetime(2024, 1, 23)),
     ("要開始規劃一些臨床研究。", datetime(2024, 1, 23)),
-    ("花錢把自家房間無線化。步驟應該是裝中華電信全屋通讓wifi可以通 => 買macbook mini => 然後等airpod max出來以後換成airpod max用耳機工作。喔對了不要忘記插座分接器 (原本是用延長線，設備減少以後就不用那個了)。", datetime(2024, 1, 24))
+    ("花錢把自家房間無線化。wifi已經裝設，接下來的步驟：=> 買macbook mini => 然後等airpod max出來以後換成airpod max用耳機工作。喔對了不要忘記插座分接器 (原本是用延長線，設備減少以後就不用那個了)。", datetime(2024, 1, 24))
     ]
 
 for i in range(100):
