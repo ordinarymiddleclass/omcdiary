@@ -14,6 +14,7 @@ import os.path
 from pathlib import Path
 import lazymdwriter
 
+
 def from_my_birthday (d):
     """
         Calculate time difference between given datetime d and 1986-4-23.
