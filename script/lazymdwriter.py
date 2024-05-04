@@ -20,13 +20,13 @@ def lazy_ul (s):
     return "\n* " + s 
 
 def lazy_ol(s, n):
-    return "\n{}. {}\n\n    ".format(n, s)
+    return "\n{}. {}\n".format(n, s)
 
 def lazy_comment(s, n):
-    return "\n[{}] {}\n\n".format(n, s)
+    return "\n[{}] {}\n".format(n, s)
 
 def lazy_secondol(s):
-    return "   - " + s + "\n"
+    return "\n    - " + s
 
 class convenient_list():
 
