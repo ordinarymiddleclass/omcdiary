@@ -73,7 +73,7 @@ def format_gp_zh (d):
     return "蒼白球紀元 {} 年 {} 月 {} 日".format(gp.years+1, gp.months, gp.days)
 
 def format_tracking (d1, d2, s):
-    daycount = (d1 - d2)
+    daycount = relativedelta.relativedelta(d1, d2)
     return "{}(此目標目前追蹤 {} 年 {} 月 {} 日)".format(s, daycount.years, daycount.months, daycount.days)
 
 def format_age (d):
@@ -107,13 +107,15 @@ def format_date_information (d):
     return li.compile()
 
 def format_title (d):
-    n = from_gp (d)
+    gp = datetime(2019, 9, 28)
+    n = (d - gp).days
     gpserial = "%04d"%n
     briefdate = d.strftime ("%Y%m%d")
     return "蒼白球日誌{}_gpdiary{}_{}".format(gpserial, gpserial, briefdate)
 
 def format_filename (d):    
-    n = from_gp (d)
+    gp = datetime(2019, 9, 28)
+    n = (d - gp).days
     gpserial = "%04d"%n
     briefdate = d.strftime ("%Y%m%d")
     return "gpdiary{}_{}".format(gpserial, briefdate) + ".md"
@@ -159,8 +161,8 @@ tasklist = [
     ("大學生專題(現在似乎要focus在文字分析了，也就是加拿大鮮肉那邊)。", datetime(2024, 7, 16)), 
     ("籌備嶄新的病理學及病理實驗教材。", datetime(2024, 7, 22)), 
     ("H大合作的切片影像分析企劃，對方已經開始訓練了，2024/9/9去催了第一次進度。", datetime(2024, 1, 23)), 
-    ("加拿大鮮肉合作的文字分析企劃，已經交出了第二批指示。2024/9月已正式發薪，2024/9/14開跑，然後已經分成兩組在進行，似乎比想像中的要快。", datetime(2024, 1, 23)),
-    ("BL學科搬遷，冰箱已經上去了，目前。", datetime(2024, 1, 23)),
+    ("加拿大鮮肉合作的文字分析企劃，已經交出了第二批指示。2024/9月已正式發薪，2024/9/14開跑，然後已經分成兩組在進行，似乎比想像中的要快，2024年10月18日已經完成部分資料標注。", datetime(2024, 1, 23)),
+    ("BL學科搬遷，冰箱已經上去了，2024/10/17確認了工程進度，似乎要評鑒後才能進行。", datetime(2024, 1, 23)),
     ("偶爾要念點病理書。", datetime(2024, 1, 23)),
     ]
 timemachine = [
