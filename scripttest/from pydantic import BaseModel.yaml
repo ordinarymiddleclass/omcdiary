@@ -1,0 +1,82 @@
+from pydantic import BaseModel
+from typing import Optional, List, Dict, Any
+
+class HistologicFeatures(BaseModel):
+    extracellular_mucin_production: bool
+    signet_ring_cell_morphology: bool
+    tumor_budding: str
+    other_histologic_features: Optional[Any]
+
+class Margin(BaseModel):
+    margin_involved: bool
+    distance: Optional[int]
+
+class Margins(BaseModel):
+    proximal: Margin
+    distal: Margin
+    mesenteric: Margin
+    circumferential_margin: Margin
+    radial_margin: Optional[Margin]
+    outmost_margin: Optional[Margin]
+    bilateral_margin: Optional[Margin]
+
+class LymphNodeStatus(BaseModel):
+    involved: int
+    examined: int
+
+class RegionalLymphNodes(BaseModel):
+    pericolic_perirectal: LymphNodeStatus
+    mesenteric_pedicle_site: Optional[Any]
+    others: Optional[Any]
+    metastatic_tumor_size: Optional[Any]
+    extranodal_extension: bool
+
+class ImmunohistochemistryResult(BaseModel):
+    expression: bool
+    percentage: int
+
+class Immunohistochemistry(BaseModel):
+    MLH1: ImmunohistochemistryResult
+    MSH2: ImmunohistochemistryResult
+    MSH6: ImmunohistochemistryResult
+    PMS2: ImmunohistochemistryResult
+    others: Optional[Any]
+    interpretation: str
+
+class AncillaryStudies(BaseModel):
+    immunohistochemistry: Immunohistochemistry
+
+class CancerRegistry(BaseModel):
+    primary_site: str
+    surgery_type: str
+    procedure: str
+    laterality: str
+    histology: str
+    grade: int
+    tumor_focality: int
+    tumor_size: List[float]
+    tumor_config: str
+    tumor_perforation: bool
+    tumor_intactness: str
+    tumor_invasion: str
+    list_of_adjacent_structures: Optional[Any]
+    histologic_features: HistologicFeatures
+    lymphovascular_invasion: bool
+    perineural_invasion: bool
+    margins: Margins
+    treatment_effect: Optional[Any]
+    tumor_deposits: int
+    type_of_polyp: Optional[Any]
+    regional_lymph_nodes: RegionalLymphNodes
+    non_regional_lymph_nodes: Optional[Any]
+    tnm_descriptors: Optional[Any]
+    pt_category: str
+    pn_category: str
+    pm_category: Optional[Any]
+    stage_group: str
+    ancillary_studies: AncillaryStudies
+
+class CancerExcisionReport(BaseModel):
+    cancer_excision_report: bool
+    cancer_category: str
+    cancer_registry: CancerRegistry
