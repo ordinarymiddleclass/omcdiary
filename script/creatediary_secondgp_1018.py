@@ -173,7 +173,7 @@ timemachine = [
 for i in range(100):
     newday = datetime.now() + timedelta(days=i)
     newfilepath = rootpath / format_filename(newday)
-    month_folder = newday.strftime("%Y-%m")
+    month_folder = newday.strftime("%Y%m")
     target_folder = root / "omcdiary_sourcefiles" / month_folder
     target_folder.mkdir(parents=True, exist_ok=True)
     target_path = target_folder / newfilepath.name
