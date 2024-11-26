@@ -168,10 +168,11 @@ tasklist = [
 timemachine = [
     "2025年授袍講稿，蒼白球日誌1662",
     "2025年授袍講稿二，蒼白球日誌1663",
+    "錯怪大埔只給一種青菜，蒼白球日誌1881"
 ]
 
 for i in range(100):
-    newday = datetime.now() + timedelta(days=i)
+    newday = datetime.now() + timedelta(days=i+1)
     newfilepath = rootpath / format_filename(newday)
     month_folder = newday.strftime("%Y%m")
     target_folder = root / "omcdiary_sourcefiles" / month_folder
