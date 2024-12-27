@@ -161,9 +161,10 @@ tasklist = [
     ("大學生專題(現在似乎要focus在文字分析了，也就是加拿大鮮肉那邊)。搞到真的像一回事一樣。", datetime(2024, 7, 16)), 
     ("籌備嶄新的病理學及病理實驗教材。", datetime(2024, 7, 22)), 
     ("H大合作的切片影像分析企劃，對方已經開始訓練了，2024/9/9去催了第一次進度。初步成果在2024/11/15看到，做得還不錯", datetime(2024, 1, 23)), 
-    ("加拿大鮮肉合作的文字分析企劃，已經交出了第二批指示。2024/9月已正式發薪，2024/9/14開跑，然後已經分成兩組在進行，似乎比想像中的要快，2024年10月18日已經完成部分資料標注。2024年11月17日第一次進度檢討", datetime(2024, 1, 23)),
+    ("加拿大鮮肉合作的文字分析企劃，已經交出了第二批指示。2024/9月已正式發薪，2024/9/14開跑，然後已經分成兩組在進行，似乎比想像中的要快，2024年10月18日已經完成部分資料標注。2024年11月17日第一次進度檢討，2024年12月14日第二次進度檢討", datetime(2024, 1, 23)),
     ("BL學科搬遷，冰箱已經上去了，2024/10/17確認了工程進度，已經評鑒完了，12月開始催他。", datetime(2024, 1, 23)),
     ("偶爾要念點病理書。", datetime(2024, 1, 23)),
+    ("唸線性代數跟機器學習理論。", datetime(2024, 12, 25)),
 ]
 
 timemachine = [
@@ -177,7 +178,7 @@ timemachine = [
 ]
 
 for i in range(100):
-    newday = datetime.now() + timedelta(days=i+1)
+    newday = datetime.now() + timedelta(days=i)
     newfilepath = rootpath / format_filename(newday)
     month_folder = newday.strftime("%Y%m")
     target_folder = root / "omcdiary_sourcefiles" / month_folder
