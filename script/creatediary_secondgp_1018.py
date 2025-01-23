@@ -26,6 +26,14 @@ def from_exposure (d):
     exposure = datetime(2024, 9, 28)
     return relativedelta.relativedelta(d, exposure) 
 
+def from_tretinoin (d):
+    tretinoin = datetime(2024, 5, 25)
+    return relativedelta.relativedelta(d, tretinoin) 
+
+def from_vitalift (d):
+    from_vitalift = datetime(2024, 10, 4)
+    return relativedelta.relativedelta(d, from_vitalift) 
+
 def from_licence (d):
     """
         Calculate time difference between given datetime d and 2017-10-12.
@@ -80,7 +88,7 @@ def format_age (d):
     li = lazymdwriter.convenient_list("年齡 Age")
     age = from_my_birthday (d)
     licence_age = from_licence (d)
-    exposure = from_exposure (d)
+    exposure = from_exposure (d)    
     years = age.years
     months = age.months
     days = age.days
@@ -90,9 +98,15 @@ def format_age (d):
     exposure_years = exposure.years
     exposure_months = exposure.months
     exposure_days = exposure.days
+    tretinoin_years = from_tretinoin(d).years
+    tretinoin_months = from_tretinoin(d).months
+    tretinoin_days = from_tretinoin(d).days
+    vitalift_years = from_vitalift(d).years
+    vitalift_months = from_vitalift(d).months
+    vitalift_days = from_vitalift(d).days   
 
     li.add_ul('{} years {} months {} days old / {} years {} months {} days after acquiring ROC Surgical Pathology Licence'.format(years, months, days, licence_years, licence_months, licence_days))
-    li.add_ul('{} 歲 {} 個月 {} 天 / 成為病理專科醫師 {} 年 {} 個月 {} 天 / 日誌被入侵 {} 年 {} 個月 {} 天'.format(years, months, days, licence_years, licence_months, licence_days, exposure_years, exposure_months, exposure_days))   
+    li.add_ul('{} 歲 {} 個月 {} 天 / 成為病理專科醫師 {} 年 {} 個月 {} 天 / 日誌被入侵 {} 年 {} 個月 {} 天 / 擦A酸 {} 年 {} 個月 {} 天 / 使用vitalift美顏器 {} 年 {} 個月 {} 天'.format(years, months, days, licence_years, licence_months, licence_days, exposure_years, exposure_months, exposure_days, tretinoin_years, tretinoin_months, tretinoin_days, vitalift_years, vitalift_months, vitalift_days))   
     return li.compile()
 
 def format_date_information (d):
@@ -160,9 +174,9 @@ rootpath = root / "scripttest"
 tasklist = [
     ("大學生專題(現在似乎要focus在文字分析了，也就是加拿大鮮肉那邊)。稍微商量一下以後大概下學期先放慢腳步，從文獻評讀開始慢慢教。", datetime(2024, 7, 16)), 
     ("籌備嶄新的病理學及病理實驗教材。", datetime(2024, 7, 22)), 
-    ("H大合作的切片影像分析企劃，對方已經開始訓練了，2024/9/9去催了第一次進度。初步成果在2024/11/15看到，做得還不錯", datetime(2024, 1, 23)), 
-    ("加拿大鮮肉合作的文字分析企劃，已經交出了第二批指示。2024/9月已正式發薪，2024/9/14開跑，然後已經分成兩組在進行，似乎比想像中的要快，2024年10月18日已經完成部分資料標注。2024年11月17日第一次進度檢討，2024年12月14日第二次進度檢討", datetime(2024, 1, 23)),
-    ("BL學科搬遷，冰箱已經上去了，2024/10/17確認了工程進度，已經評鑒完了，1月開始催他。", datetime(2024, 1, 23)),
+    ("H大合作的切片影像分析企劃，對方已經開始訓練了，2024/9/9去催了第一次進度。初步成果在2024/11/15看到，做得還不錯，還差一些陰性的結果，2025年1月給他一些了，靜待佳音", datetime(2024, 1, 23)), 
+    ("加拿大鮮肉合作的文字分析企劃，已經交出了第二批指示。2024/9月已正式發薪，2024/9/14開跑，然後已經分成兩組在進行，似乎比想像中的要快，2024年10月18日已經完成部分資料標注。2024年11月17日第一次進度檢討，2024年12月14日第二次進度檢討，2025年2月我自己也可能會跑一些data出來", datetime(2024, 1, 23)),
+    ("BL學科搬遷，冰箱已經上去了，2024/10/17確認了工程進度，已經評鑒完了，2025年1月我已經開始催他，他說盡快。", datetime(2024, 1, 23)),
     ("偶爾要念點病理書。", datetime(2024, 1, 23)),
     ("唸線性代數跟機器學習理論。", datetime(2024, 12, 25)),
 ]
@@ -175,6 +189,20 @@ timemachine = [
     "台灣疫情第三級警戒，蒼白球日誌0595",
     "開始用安耐曬，蒼白球日誌1894",
     "中華隊奪得12強冠軍，蒼白球日誌1883"
+]
+
+def format_timedelta(d, event_date, description):
+    delta = relativedelta.relativedelta(d, event_date)
+    return "{} (距今 {} 年 {} 月 {} 日)".format(description, delta.years, delta.months, delta.days)
+
+timemachine = [
+    format_timedelta(datetime.now(), datetime(2024, 4, 16), "2025年授袍講稿，蒼白球日誌1662"),
+    format_timedelta(datetime.now(), datetime(2024, 4, 17), "2025年授袍講稿二，蒼白球日誌1663"),
+    format_timedelta(datetime.now(), datetime(2024, 11, 21), "錯怪大埔只給一種青菜，蒼白球日誌1881"),
+    format_timedelta(datetime.now(), datetime(2024, 12, 3), "韓國戒嚴又解嚴，蒼白球日誌1893"),
+    format_timedelta(datetime.now(), datetime(2021, 5, 15), "台灣疫情第三級警戒，蒼白球日誌0595"),
+    format_timedelta(datetime.now(), datetime(2024, 12, 4), "開始用安耐曬，蒼白球日誌1894"),
+    format_timedelta(datetime.now(), datetime(2024, 11, 23), "中華隊奪得12強冠軍，蒼白球日誌1883")
 ]
 
 for i in range(100):
