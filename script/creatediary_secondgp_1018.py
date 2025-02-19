@@ -151,6 +151,15 @@ def create_template_body(d, tasklist = [("test", datetime(2024, 1, 23)), ("test"
         upper_body.add_secondol(format_tracking(d, task[1], task[0]))
     #upper_body.add_secondol(format_tracking(datetime.now(), datetime(2024, 1, 23), "test")
     appendix.add_ul("時光機")
+    timemachine = [
+    format_timedelta(d, datetime(2024, 4, 16), "2025年授袍講稿，蒼白球日誌1662"),
+    format_timedelta(d, datetime(2024, 4, 17), "2025年授袍講稿二，蒼白球日誌1663"),
+    format_timedelta(d, datetime(2024, 11, 21), "錯怪大埔只給一種青菜，蒼白球日誌1881"),
+    format_timedelta(d, datetime(2024, 12, 3), "韓國戒嚴又解嚴，蒼白球日誌1893"),
+    format_timedelta(d, datetime(2021, 5, 15), "台灣疫情第三級警戒，蒼白球日誌0595"),
+    format_timedelta(d, datetime(2024, 12, 4), "開始用安耐曬，蒼白球日誌1894"),
+    format_timedelta(d, datetime(2024, 11, 23), "中華隊奪得12強冠軍，蒼白球日誌1883")
+    ]
     for item in timemachine:
         appendix.add_secondol(item)
     return upper_body.compile() + lower_body.compile() + appendix.compile()
